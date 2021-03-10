@@ -1,0 +1,14 @@
+<h2>Message Details</h2>
+<button class="link-buttons" routerLink="/messages">Inbox messages</button>
+<button class="link-buttons" routerLink="/sent-messages">Sent messages</button>
+<app-alerts></app-alerts>
+<div class="message">
+<div class="container darker" *ngIf="loader">
+  <i class="fa fa-trash" (click)="deleteMessage(message.id)"></i>
+  <h4 class="sender">sender: {{message.sender}}</h4>
+  <h4 class="sender">receiver: {{message.receiver}}</h4>
+  <h4 class="message-title">{{message.title}}</h4>
+  <p>{{message.body}}</p>
+  <span class="time-right">{{message.sent | date: 'medium'}}</span>
+</div>
+</div>

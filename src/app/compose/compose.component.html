@@ -1,0 +1,18 @@
+<form [formGroup]="composeForm" (ngSubmit)="composeMessage()">
+  <div class="container">
+    <app-alerts></app-alerts>
+    <label for="receiver"><b>Receiver</b></label>
+    <input type="text" id="receiver" class="form-control" placeholder="Enter Receiver Name" name="receiver" formControlName="receiver" required>
+
+    <label for="title"><b>Title</b></label>
+    <input type="text"  id="title" class="form-control" placeholder="Enter Title" formControlName="title" name="title" required>
+
+    <label for="body"><b>Message</b></label>
+     <br>
+    <textarea type="text-area" rows="10" id="body" class="form-control" placeholder="Enter Text" formControlName="body" name="body" required></textarea>
+
+    <button type="submit">Compose</button>
+  </div>
+    <button class="cancelbtn" type="cancel" routerLink="/messages">cancel</button>
+</form>
+

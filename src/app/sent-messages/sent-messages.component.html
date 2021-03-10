@@ -1,0 +1,25 @@
+<h1 class="heading">Sent Messages</h1>
+<button class="link-buttons" routerLink="/compose">Compose</button>
+<button class="link-buttons" routerLink="/messages">Inbox messages</button>
+<app-alerts></app-alerts>
+<div class="empty-message" *ngIf="isEmpty">
+  <h2>No sent messages to show!</h2>
+</div>
+<div class="message" *ngFor="let message of sentMessages">
+      <div class="container" *ngIf="message.receiver == 'test'">
+        <i class="fa fa-trash" (click)="deleteSentMessage(message.id)"></i>
+        <h4 class="sender">receiver: {{message.receiver}}</h4>
+        <h4 class="message-title">{{message.title}}</h4>
+        <p>{{message.body}}</p>
+        <span class="time-left2" (click)="getMessageById(message.id)">View Message</span>
+        <span class="time-right2">{{message.sent | date: 'medium'}}</span>
+      </div>
+      <div class="container darker" *ngIf="message.receiver != 'test'">
+        <i class="fa fa-trash" (click)="deleteSentMessage(message.id)"></i>
+        <h4 class="sender">receiver: {{message.receiver}}</h4>
+        <h4 class="message-title">{{message.title}}</h4>
+        <p>{{message.body}}</p>
+        <span class="time-left" (click)="getMessageById(message.id)">View Message</span>
+        <span class="time-right">{{message.sent | date: 'medium'}}</span>
+      </div>
+</div>
